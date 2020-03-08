@@ -84,4 +84,5 @@ public void orderCancelMethod() {
 
 #### iii. 게시글 등록 화면 만들기
 #### iv. 전체 조회 화면 만들기
+#### v. 게시글 수정, 삭제 화면 만들기
 
