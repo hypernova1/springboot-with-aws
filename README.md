@@ -117,3 +117,10 @@ spring:
 * 2.0버전부터 인증정보만 입력하고 나머지는 enum으로 대체됨(`CommonOAuth2Provider`)
 
 ### II. 구글 서비스 등록
+* `spring.security.oauth2.client.registration.google.scope = profile, email`
+    * scope는 openid,profile,email이 기본 값인데 openid가 있으면 Open Id Provider로 인식을 해서 Open Id Provider 서비스인 구글과 그렇지 않은 네이버, 카카오등의 서비스를 각각 나눠서 OAuth2Service를 만들어야하기 때문
+
+* `application-oauth.properties`
+    * `-` 뒤의 단어 profile이 생성됨
+    * `application.properties`: spring.profiles.include = oauth 등록
+### III. 구글 로그인 연동
