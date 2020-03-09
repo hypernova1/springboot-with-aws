@@ -78,7 +78,7 @@ public void orderCancelMethod() {
 #### i. 머스테치의 특징
     * 타 템플릿 엔진에 비해 문법이 간단함
     * 로직 코드를 사용할 수 없어 View의 역할과 서버의 역할을 명확하게 분리
-    * `Mustache.js`와` `Mustache.java` 두 가지가 다 있어서 하나의 문법으로 클라이언트/서버 템플릿을 모두 사용 가능
+    * `Mustache.js`와 `Mustache.java` 두 가지가 다 있어서 하나의 문법으로 클라이언트/서버 템플릿을 모두 사용 가능
 
 #### ii. 머스테치 플러그인 설치
 
@@ -86,3 +86,34 @@ public void orderCancelMethod() {
 #### iv. 전체 조회 화면 만들기
 #### v. 게시글 수정, 삭제 화면 만들기
 
+## 5. 스프링 시큐리티와 OAuth 2.0으로 로그인 구현
+### I. 스프링 시큐리티와 스프링 시큐리티 OAuth2 클라이언트
+* 스프링 부트 1.5와 2.x 버전의 차이
+    * properties(yaml) 파일의 url 주소 명시 차이
+
+#### 1.5
+~~~yaml
+google:
+    client:
+        clientId: 인증정보
+        clientSecret: 인증정보
+        accessTokenUri: https://accounts.google.com/o/oauth2/token
+        userAuthorizationUri: https://accounts.google.com/o/oauth2/auth
+        clentAuthenticationScheme: form
+        scope: email, profile
+    resource:
+        userInfoUri: https://www.googleapis.com/oauth2/v2/userinfo
+~~~
+
+#### 2.x
+~~~yaml
+spring:
+    security:
+        oauth2:
+            client:
+                clientId: 인증정보
+                clientSecret: 인증정보
+~~~
+* 2.0버전부터 인증정보만 입력하고 나머지는 enum으로 대체됨(`CommonOAuth2Provider`)
+
+### II. 구글 서비스 등록
